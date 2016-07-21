@@ -75,7 +75,7 @@ server {
         if not ok then
             ngx.log(ngx.ERR, "failed to set SSL session for ID ", sess_id,
                     ": ", err)
-            -- considier it as a cache miss...
+            -- consider it as a cache miss...
             return
         end
 
