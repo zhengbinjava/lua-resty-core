@@ -82,7 +82,7 @@ server {
         -- done here, SSL session successfully set and should resume accordingly...
     }
 
-    ssl_sessoin_store_by_lua_block {
+    ssl_session_store_by_lua_block {
         local ssl_sess = require "ngx.ssl.session"
 
         local sess_id, err = ssl_sess.get_session_id()
