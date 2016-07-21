@@ -108,8 +108,8 @@ server {
             -- the user is supposed to implement the
             -- my_save_ssl_session_by_id Lua function used below.
             -- She can save to an external memcached
-            -- or redis cluster, for example. And she can also introduce a local
-            -- cache layer at the same time...
+            -- or redis cluster, for example. And she can also introduce
+            -- a local cache layer at the same time...
             local sess, err = my_save_ssl_session_by_id(sess_id, sess)
             if not sess then
                 if err then
