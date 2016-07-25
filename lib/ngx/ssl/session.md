@@ -103,7 +103,7 @@ server {
         -- for the best performance, we should avoid creating a closure
         -- dynamically here on the hot code path. Instead, we should
         -- put this function in one of our own Lua module files. this
-        -- example is just for demonstrative purposes...
+        -- example is just for demonstration purposes...
         local function save_it(premature, sess_id, sess)
             -- the user is supposed to implement the
             -- my_save_ssl_session_by_id Lua function used below.
