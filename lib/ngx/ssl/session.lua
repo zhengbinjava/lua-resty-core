@@ -11,6 +11,7 @@ local getfenv = getfenv
 local error = error
 local errmsg = base.get_errmsg_ptr()
 local get_string_buf = base.get_string_buf
+local FFI_ERROR = base.FFI_ERROR
 
 
 ffi.cdef[[
@@ -51,7 +52,7 @@ function _M.get_serialized_session()
 
     local rc = C.ngx_http_lua_ffi_ssl_get_serialized_session(r, buf, errmsg)
 
-    if rc < 0 then
+    if rc == FFI_ERROR then
          return nil, ffi_str(errmsg[0])
     end
 
@@ -76,7 +77,7 @@ function _M.get_session_id()
 
     local rc = C.ngx_http_lua_ffi_ssl_get_session_id(r, buf, errmsg)
 
-    if rc < 0 then
+    if rc == FFI_ERROR then
         return nil, ffi_str(errmsg[0])
     end
 
@@ -93,7 +94,7 @@ function _M.set_serialized_session(sess)
 
     local rc = C.ngx_http_lua_ffi_ssl_set_serialized_session(r, sess, #sess,
                                                              errmsg)
-    if rc < 0 then
+    if rc == FFI_ERROR then
         return nil, ffi_str(errmsg[0])
     end
 
